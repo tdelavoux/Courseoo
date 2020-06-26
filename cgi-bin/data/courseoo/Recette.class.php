@@ -107,9 +107,11 @@
             
             public function getAllByCategories($limit, $categorie){
                 $statement = $this->db->prepare(
-                        "SELECT recette.id, recette.nom, recette.image,recette.dateFin, recette.fkUser, categoriesRecettes.id as catId , categoriesRecettes.libelle as nomCategorie
-                        FROM recette, categoriesRecettes
-                        WHERE recette.fkCategorie = categoriesRecettes.id
+                        "SELECT recette.id, recette.nom, recette.image, recette.fkUser, user.image as imageUser, user.login as userName, categoriesRecettes.id as catId , categoriesRecettes.libelle as nomCategorie
+                        FROM recette, categoriesRecettes, user
+                        WHERE dateFin IS NULL
+                        AND recette.fkCategorie = categoriesRecettes.id
+                        AND recette.fkUser = user.id
                         AND recette.fkCategorie = :categorie
                         LIMIT " . self::OFFSET_AFFICHE . " OFFSET :limit");
                 $statement->bindParam(':categorie', $categorie, \PDO::PARAM_INT);

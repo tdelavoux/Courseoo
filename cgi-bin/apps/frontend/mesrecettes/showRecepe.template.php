@@ -8,7 +8,7 @@
 <div class="container">
     <!-------------------- ENTETE -------------------------------->
     <div class="row jumbotron">
-        <h1 class="<?php echo $recepeInfo['fkUser'] === \User::getId() ? 'editableName' : ''; ?>"><?php echo \Db::decode($recepeInfo['nom']); ?></h1>
+        <h1 class="<?php echo $recepeInfo['fkUser'] === \User::getId() ? 'editableName' : ''; ?>"><?php echo $recepeInfo['nom']; ?></h1>
     </div>
     
     <!-------------------- CORPS  -------------------------------->
@@ -26,7 +26,7 @@
             <div class="list-group list-cust">
                 <span class="list-group-item active">Ingrédients de la recette</span>
                 <?php foreach($ingredients as $ingredient) : ?>
-                    <span  class="list-group-item"><?php echo $ingredient['quantite'] . $ingredient['uniteMesure'] . ' ' .  \Db::decode($ingredient['ingredient']); ?></span>
+                    <span  class="list-group-item"><?php echo $ingredient['quantite'] . $ingredient['uniteMesure'] . ' ' .  $ingredient['ingredient']; ?></span>
                 <?php endforeach; ?>
             </div>
         </div>

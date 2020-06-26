@@ -52,7 +52,7 @@
     
         <div class="row">
             <?php foreach($RecByCat as $recep) : ?> 
-                <div class="bloc-card col-md-3 Sortable recepe-card" data-title="<?php echo \Db::decode(strtoupper($recep['nom'])); ?>">
+                <div class="bloc-card col-md-3 Sortable recepe-card col-12 col-sm-6 col-md-6 col-lg-3" data-title="<?php echo \Db::decode(strtoupper($recep['nom'])); ?>">
                     <div class="card sub-card-recepe">
                         <img class="card-img-top" src="<?php echo isset($recep['image']) ? $recep['image'] : 'images/upload/untitled_' . $recep['catId'] . '.jpg' ?>" alt="" />
                         <div class="card-body p-card-text">

@@ -28,9 +28,9 @@ input {
 body{ 
 
  background: #bdc3c7;
-  background: -webkit-linear-gradient(to top, #bdc3c7, #4e6378) fixed;
+/*  background: -webkit-linear-gradient(to top, #bdc3c7, #4e6378) fixed;
   background: linear-gradient(to top, #bdc3c7, #4e6378) fixed;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat;*/
  
 }
 .container{
@@ -96,17 +96,17 @@ body{
 
 .last_recepe{
     color:#fff; 
-/*    background-image: url("../images/last_recepe.jpg");*/
-    background-color:#b1b0a0;
+    background-image: url("../images/recep.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     padding: 3.5rem 2rem;
+    margin-top: 2em;
 }
 
 .my_recepe{
    color:#fff; 
-    background-image: url("../images/my_recepe.jpg");
+    background-image: url("../images/my_recep.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover; 
@@ -115,8 +115,7 @@ body{
 
 .categories{
     color:#fff; 
-/*    background-image: url("../images/categories.jpg");*/
-    background-color:#9e747c;
+    background-image: url("../images/categories.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -197,7 +196,10 @@ body{
 }
 
 .account-jumbo{
-    background-color: #4383d1;
+    background-image: url("../images/account.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     color: #fff;
 }
 
@@ -233,6 +235,9 @@ body{
     padding: 1em 2em;
 }
 
+.inline-top{
+    margin: 1em 0;
+}
 /* ############## Mes recettes ##################################### */
 
 .recepe-card{
@@ -255,6 +260,7 @@ body{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    padding: 3.5rem 2rem;
 }
 .form-table tbody td, .form-table thead th{
     padding: 0 1em;
@@ -450,5 +456,13 @@ table{
     .account-row{
         margin-top : 3em;
     }
+}
+
+@media only screen and (max-width : 992px) {
+
+    .logo-apps{
+        display:none;
+    }
+
 }
  

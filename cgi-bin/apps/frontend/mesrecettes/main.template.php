@@ -10,7 +10,7 @@
     
     <!-------------------- CORPS  -------------------------------->
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-12 col-md-6 inline-top">
             <div class="input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-search"></i></span>
@@ -18,7 +18,7 @@
                 <input class="js-shuffle-search form-control" type="text"/>
             </div>
         </div>
-        <div class="col-md-8 btn-left-bloc">
+        <div class="col-12 col-md-6 btn-left-bloc">
             <button class="btn buttonAddExtend" data-toggle="modal" data-target="#addRecepeModal">
                 <span class="circle">
                     <span class="icon arrow"></span>
@@ -31,7 +31,7 @@
     <div class="row">
    
         <?php foreach($userRecepe as $recep) : ?> 
-            <div class="bloc-card col-md-3 Sortable recepe-card" data-title="<?php echo \Db::decode(strtoupper($recep['nom'])); ?>">
+            <div class="bloc-card col-md-3 Sortable recepe-card col-12 col-sm-6 col-md-6 col-lg-3" data-title="<?php echo \Db::decode(strtoupper($recep['nom'])); ?>">
                 <div class="card sub-card-recepe">
                     <img class="card-img-top" src="<?php echo isset($recep['image']) ? $recep['image'] : 'images/upload/untitled_' . $recep['catId'] . '.jpg' ?>" alt="" />
                     <div class="card-body p-card-text">

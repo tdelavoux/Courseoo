@@ -35,7 +35,7 @@
     <!-------------------- CORPS  -------------------------------->
     <div class="row card-rows">
         <?php foreach($lastRecep as $recep) : ?>
-            <div class="bloc-card col-12 col-md-6 col-lg-3">
+            <div class="bloc-card col-6 col-md-6 col-lg-3">
                 <div class="card sub-card-recepe">
                     <img class="card-img-top" src="<?php echo isset($recep['image']) ? $recep['image'] : './images/upload/untitled_' . $recep['catId'] . '.jpg' ?>" alt="imagePlat" />
                     <div class="card-body p-card-text">

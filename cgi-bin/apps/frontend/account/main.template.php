@@ -7,7 +7,7 @@
         <div class="account-header">
             <h1 class="account-title"><?php echo \Db::decode($userInfos['login']) ?></h1>
             <div class="account-img">
-                <div class="rounded-circle profile-img" style="background-image:url('./images/user/<?php echo $userInfos['image'] ;?>');background-position: center;background-repeat: no-repeat;background-size: cover;"></div>
+                <div class="rounded-circle profile-img" style="background-image:url('./images/user/<?php echo $recep['imageUser'] ? $recep['imageUser'] : 'anonyme.jpg';?>');background-position: center;background-repeat: no-repeat;background-size: cover;"></div>
             </div>
         </div>
     </div>

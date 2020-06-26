@@ -48,6 +48,15 @@
                 $statement->execute();
             }
             
+            public function uploadImage($fkUser, $path){
+                $statement = $this->db->prepare(
+                        "UPDATE User 
+                        SET image = :img
+                        WHERE id = :fkUser");
+                $statement->bindParam(':fkUser', $fkUser, \PDO::PARAM_INT);
+                $statement->bindParam(':img', $path, \PDO::PARAM_STR);
+                $statement->execute();
+            }
             
             /** ###############################################################################
              *                          FONCTIONS DE RECUPERATION

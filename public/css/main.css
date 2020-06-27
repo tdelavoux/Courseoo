@@ -23,15 +23,14 @@ input {
     border:1px solid #ccc !important;
 }
 
-.jumbotron{border-radius: 0px 0px;}
+.jumbotron{border-radius: 0px 0px; color:#fff;background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height:170px;
+}
 
 body{ 
-
- background: #bdc3c7;
-/*  background: -webkit-linear-gradient(to top, #bdc3c7, #4e6378) fixed;
-  background: linear-gradient(to top, #bdc3c7, #4e6378) fixed;
-  background-repeat: no-repeat;*/
- 
+    background: #bdc3c7;
 }
 .container{
     background-color:#fff;
@@ -75,6 +74,10 @@ body{
   outline: 0;
 }
 
+.black-overlay{
+/*    filter: grayscale(0.9);*/
+}
+
 
 /* ####################################################################################
                                 INDEX
@@ -96,9 +99,7 @@ body{
 .last_recepe{
     color:#fff; 
     background-image: url("../images/recep.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    
     padding: 3.5rem 2rem;
     margin-top: 2em;
 }

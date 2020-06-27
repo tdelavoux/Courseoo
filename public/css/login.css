@@ -32,3 +32,18 @@ img{ margin: 0 1em;}
 	margin-top: -1em;
 	background-clip: padding-box;
 }
+
+.inscription-content{
+    display:flex;
+    padding:0;
+}
+
+@media only screen and (max-width : 576px) {
+    .inscription-content{
+        flex-direction: column;
+    }
+    
+    #login-Page-left{width:100%;}
+    #inscription-Page-right{width:100%;}
+    #login-Page-right{width:100%;}
+}

@@ -7,9 +7,11 @@
 
 <div class="container">
     <!-------------------- ENTETE -------------------------------->
-    <div class="row jumbotron">
-        <h1 class="<?php echo $recepeInfo['fkUser'] === \User::getId() ? 'editableName' : ''; ?>"><?php echo $recepeInfo['nom']; ?></h1>
+    <div class="row jumbotron black-overlay" style="background-image: url('./images/upload/<?php echo isset($recepeInfo['image']) ? $recepeInfo['image'] : 'untitled_' . $recepeInfo['catId'] . '.jpg' ?>');">
+        
     </div>
+    
+    <h1 class="text-center"><?php echo $recepeInfo['nom']; ?></h1>
     
     <!-------------------- CORPS  -------------------------------->
     <div class="btn-left-bloc">

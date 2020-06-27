@@ -28,6 +28,17 @@
                 $statement->bindParam(':fkUser', $fkUser, \PDO::PARAM_INT);
                 $statement->bindParam(':image', $image, \PDO::PARAM_STR);
                 $statement->execute();
+                return $this->db->query('SELECT @@IDENTITY')->fetchColumn();
+            }
+            
+            public function updatePictRecette($image, $fkRecette){
+                $statement = $this->db->prepare(
+                        "UPDATE recette "
+                        . "SET image = :image "
+                        . "WHERE id = :fkrecette");
+                $statement->bindParam(':image', $image, \PDO::PARAM_STR);
+                $statement->bindParam(':fkrecette', $fkRecette, \PDO::PARAM_INT);
+                $statement->execute();
             }
             
             public function closeRecette($fkRecette, $date){

@@ -42,13 +42,23 @@
          */
         public static function addRecepe()
         {
-            
-            self::getAddRecepeFormData();
-            
+            self::getAddRecepeFormData();    
             if(\Form::isValid()){
                 
-                \Application::getDb(\config\Configuration::get('courseoo_dsn', 'databases'))
-                      ->data('courseoo\\Recette')->addRecette(\Form::param('recepeName'), \Form::param('recepeCategory'),null, \User::getId());
+                $idRecette = \Application::getDb(\config\Configuration::get('courseoo_dsn', 'databases'))
+                      ->data('courseoo\\Recette')->addRecette(\Form::param('recepeName'), \Form::param('recepeCategory'), null, \User::getId());
+                
+                $fileName =  $idRecette . '.jpg';
+                $uploadfile = \config\Configuration::$vars['quaiRecette']['pathRecette'] . $fileName;
+                
+                if(!empty($_FILES) && move_uploaded_file($_FILES['recepeImage']['tmp_name'], $uploadfile)){
+                    
+                    \Application::getDb(\config\Configuration::get('courseoo_dsn', 'databases'))
+                      ->data('courseoo\\Recette')->updatePictRecette($fileName, $idRecette);
+
+                    \Form::addConfirmation('Photo chargée avec succès !');
+                }
+                
                 \Form::addConfirmation('Nouvelle Recette ajoutée avec succès');
                 \Form::displayResult(\Application::getRoute('mesrecettes', 'index'));
             }else{
@@ -71,7 +81,8 @@
                                                                             \Form::param('fkRecepe'),
                                                                             \Form::param('quantite'),
                                                                             \Form::param('mesure'));
-                \Form::addConfirmation('Nouvelle Recette ajoutée avec succès');
+            
+                \Form::addConfirmation('Nouvel ingrédient ajoutée avec succès');
                 \Form::displayResult(\Application::getRoute('mesrecettes', 'showRecette', array(\Form::param('fkRecepe'))));
             }else{
                  \Form::displayErrors(\Application::getRoute('mesrecettes', 'showRecette', array(\Form::param('fkRecepe'))));
@@ -95,6 +106,7 @@
          * Récupération des données du formulaire d'ajout d'une recette
          */
         private static function getAddRecepeFormData(){
+            
             \Form::addParams('recepeName', $_POST, \Form::TYPE_STRING, 1, 255);
             \Form::addParams('recepeCategory', $_POST, \Form::TYPE_INT, 0, \Form::SIGNED_INT_32_MAX);
             \Form::addParams('recepeImage', $_POST, \Form::TYPE_STRING, 1, 255);
@@ -102,6 +114,7 @@
             if(trim(\Form::param('recepeName')) === \Form::EMPTY_STRING || trim(\Form::param('recepeCategory')) === "null"){
                 \Form::addError('critical error', 'Les champs ne peuvent pas être vides');
             }
+            
         }
         
         /**

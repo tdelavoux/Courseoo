@@ -37,12 +37,12 @@
         <?php foreach($lastRecep as $recep) : ?>
             <div class="bloc-card col-6 col-md-6 col-lg-3">
                 <div class="card sub-card-recepe">
-                    <img class="card-img-top" src="<?php echo isset($recep['image']) ? $recep['image'] : './images/upload/untitled_' . $recep['catId'] . '.jpg' ?>" alt="imagePlat" />
+                    <a  href="<?php echo \Application::getRoute('visualize','recepe', array($recep['id']));?>">
+                        <img class="card-img-top" src="<?php echo isset($recep['image']) ? './images/upload/'.$recep['image'] : './images/upload/untitled_' . $recep['catId'] . '.jpg' ?>" alt="imagePlat" />
+                    </a>
                     <div class="card-body p-card-text">
                         <div class="card-body-content">
-                            <h5 class="card-title"><?php echo strlen($recep['nom']) > 40 ? substr($recep['nom'], 0, 37) .'...'  : $recep['nom']; ?> 
-                                <a  href="<?php echo \Application::getRoute('visualize','recepe', array($recep['id']));?>"><i class="fas fa-eye"></i></a>
-                            </h5>
+                            <h5 class="card-title"><?php echo strlen($recep['nom']) > 40 ? substr($recep['nom'], 0, 37) .'...'  : $recep['nom']; ?>  </h5>
                             <p class="card-text">
                                 <a href="<?php echo \Application::getRoute('categories', 'index', array($recep['catId'], 1));?>">#<?php echo \Db::decode($recep['nomCategorie'])?></a>
                             </p>

@@ -49,7 +49,7 @@
 
                             <a href="<?php echo \Application::getRoute('visualize','user', array($recep['fkUser']));?>">
                                 <div class="profile-row">
-                                    <div class="rounded-circle profile-img-xs" style="background-image:url('./images/user/<?php echo $recep['imageUser'] ? $recep['imageUser'] : 'anonyme.jpg';?>');background-position: center;background-repeat: no-repeat;background-size: cover;"></div>;
+                                    <div class="rounded-circle profile-img-xs" style="background-image:url('./images/user/<?php echo $recep['imageUser'] ? $recep['imageUser'] : 'anonyme.jpg';?>');background-position: center;background-repeat: no-repeat;background-size: cover;"></div>
                                     <div class="user-title"><?php echo $recep['userName'];?></div>
                                 </div>
                             </a>

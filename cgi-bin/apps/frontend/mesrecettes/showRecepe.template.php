@@ -11,7 +11,7 @@
         
     </div>
     
-    <h1 class="text-center"><?php echo $recepeInfo['nom']; ?></h1>
+    <h1 class="text-center"><?php echo $recepeInfo['nom']; ?> ( <?php echo $recepeInfo['nbPersonne'];?> personnes) </h1>
     
     <!-------------------- CORPS  -------------------------------->
     <div class="btn-left-bloc">

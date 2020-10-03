@@ -46,7 +46,7 @@
             if(\Form::isValid()){
                 
                 $idRecette = \Application::getDb(\config\Configuration::get('courseoo_dsn', 'databases'))
-                      ->data('courseoo\\Recette')->addRecette(\Form::param('recepeName'), \Form::param('recepeCategory'), null, \User::getId());
+                      ->data('courseoo\\Recette')->addRecette(\Form::param('recepeName'), \Form::param('recepeCategory'), null, \User::getId(), \Form::param('recepeNbPersonne'));
                 
                 $fileName =  $idRecette . '.jpg';
                 $uploadfile = \config\Configuration::$vars['quaiRecette']['pathRecette'] . $fileName;
@@ -109,6 +109,7 @@
             
             \Form::addParams('recepeName', $_POST, \Form::TYPE_STRING, 1, 255);
             \Form::addParams('recepeCategory', $_POST, \Form::TYPE_INT, 0, \Form::SIGNED_INT_32_MAX);
+            \Form::addParams('recepeNbPersonne', $_POST, \Form::TYPE_INT, 0, \Form::SIGNED_INT_32_MAX);
             \Form::addParams('recepeImage', $_POST, \Form::TYPE_STRING, 1, 255);
             
             if(trim(\Form::param('recepeName')) === \Form::EMPTY_STRING || trim(\Form::param('recepeCategory')) === "null"){
@@ -118,7 +119,7 @@
         }
         
         /**
-         * Récupération des données du formulaire d'ajout d'une recette
+         * Récupération des données du formulaire d'ajout d'un ingrédient
          */
         private static function getAddIngredientFormData(){
             \Form::addParams('ingredient', $_POST, \Form::TYPE_STRING, 1, 255);

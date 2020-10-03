@@ -60,10 +60,9 @@
                 //récupération des éléments d'une recette
                 $IngredientsRecepe = \Application::getDb(\config\Configuration::get('courseoo_dsn', 'databases'))
                     ->data('courseoo\\IngredientRecette')->getIngredientsByRecette(\Form::param('recette'));
-                
                 foreach($IngredientsRecepe as $ingredient){
                     \Application::getDb(\config\Configuration::get('courseoo_dsn', 'databases'))
-                        ->data('courseoo\\ListeIngredients')->addNewIngredientToList(\User::getId(), $ingredient['ingredient'], $ingredient['quantite'], $ingredient['idMesure']);
+                        ->data('courseoo\\ListeIngredients')->addNewIngredientToList(\User::getId(), $ingredient['ingredient'],  intval(\Form::param('mutli')) * $ingredient['quantite'], $ingredient['idMesure']);
                 }   
                 
                 \Form::addConfirmation('Ajout réalisé avec succès');
@@ -77,13 +76,13 @@
          * Suppression d'un type d'ingrédients par leur ID
          */
         public static function deleteElements(){
-            \Form::addParams('pattern', $_POST, \Form::TYPE_STRING, 0, 255);
+            \Form::addParams('pattern', $_POST, \Form::TYPE_STRING, 0, 10000);
             $ids = json_decode(\Form::param('pattern'));
             
             \Application::getDb(\config\Configuration::get('courseoo_dsn', 'databases'))
                     ->data('courseoo\\ListeIngredients')->removeIngredientsFromList($ids);
             
-            echo 'ok';
+            die('ok');
         }
         
         /**
@@ -116,9 +115,10 @@
         
         private static function getRecepeFormDatas(){
             \Form::addParams('recette', $_POST, \Form::TYPE_INT, 0, \Form::SIGNED_INT_32_MAX);
+            \Form::addParams('mutli', $_POST, \Form::TYPE_INT, 0, \Form::SIGNED_INT_32_MAX);
             
             /* TODO faire les vérifications de présence des ingrédients */
-            if(\Form::param('recette') === "null" || !\Form::param('recette')){
+            if(\Form::param('recette') === "null" || !\Form::param('recette') || !\Form::param('mutli')){
                 \Form::addError('critical error', 'Les champs ne peuvent pas être vides');
             }
         }

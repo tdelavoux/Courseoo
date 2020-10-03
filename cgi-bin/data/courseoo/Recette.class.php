@@ -9,7 +9,7 @@
             
             /** ###############################################################################
              *                          FONCTIONS D'ACTIONS
-             ###############################################################################*/
+            * ###############################################################################*/
 
             /**--------------------------------------------------------------------------------
              * Ajout d'une nouvelle recette
@@ -18,14 +18,15 @@
              * @param STR $image        Chemin vers l'image du plat
              * @param INT $fkUser       Id de l'utilisateur qui possède la recette
              */
-            public function addRecette($nom, $fkCategorie, $image, $fkUser)
+            public function addRecette($nom, $fkCategorie, $image, $fkUser, $nbPersonnes)
             {
                 $statement = $this->db->prepare(
-                        "INSERT INTO recette (Nom, fkCategorie, image, dateFin, fkUser)
-                        VALUES (:nom, :fkCategorie, :image, null, :fkUser)");
+                        "INSERT INTO recette (Nom, fkCategorie, image, dateFin, fkUser, nbPersonne)
+                        VALUES (:nom, :fkCategorie, :image, null, :fkUser, :nbPersonne)");
                 $statement->bindParam(':nom', $nom, \PDO::PARAM_STR);
                 $statement->bindParam(':fkCategorie', $fkCategorie, \PDO::PARAM_INT);
                 $statement->bindParam(':fkUser', $fkUser, \PDO::PARAM_INT);
+                $statement->bindParam(':nbPersonne', $nbPersonnes, \PDO::PARAM_INT);
                 $statement->bindParam(':image', $image, \PDO::PARAM_STR);
                 $statement->execute();
                 return $this->db->query('SELECT @@IDENTITY')->fetchColumn();
@@ -54,7 +55,7 @@
             
             /** ###############################################################################
              *                          FONCTIONS DE RECUPERATION
-             ###############################################################################*/
+            * ###############################################################################*/
             
             /**--------------------------------------------------------------------------------
              * Récupération des 4 dernières recettes actives
@@ -78,7 +79,7 @@
              */
             public function getRecepeByUser($fkUser){
                 $statement = $this->db->prepare(
-                        "SELECT recette.id, recette.nom, recette.image, categoriesRecettes.id as catId , categoriesRecettes.libelle as nomCategorie
+                        "SELECT recette.id, recette.nbPersonne ,recette.nom, recette.image, categoriesRecettes.id as catId , categoriesRecettes.libelle as nomCategorie
                         FROM recette, categoriesRecettes
                         WHERE dateFin IS NULL
                         AND recette.fkCategorie = categoriesRecettes.id
@@ -95,7 +96,7 @@
              */
             public function getRecepeById($fkRecette){
                 $statement = $this->db->prepare(
-                        "SELECT recette.id, recette.nom, recette.image,recette.dateFin, recette.fkUser, categoriesRecettes.id as catId , categoriesRecettes.libelle as nomCategorie
+                        "SELECT recette.id, recette.nbPersonne ,recette.nom, recette.image,recette.dateFin, recette.fkUser, categoriesRecettes.id as catId , categoriesRecettes.libelle as nomCategorie
                         FROM recette, categoriesRecettes
                         WHERE recette.fkCategorie = categoriesRecettes.id
                         AND recette.id = :fkRecette");

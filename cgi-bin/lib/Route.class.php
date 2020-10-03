@@ -24,7 +24,7 @@
                         $_GET['params'] = '';
                     }
                     }
-
+                    
                     $routeClass = $namespace . 'Route';
 
                     foreach ($routeClass::$routes as $routeName => $route)

@@ -70,7 +70,11 @@
                 <div class="form-group">
                     <label>Nom de la recette</label>
                     <input class="form-control verifyText" data-name="Nom de la recette" type="text" name="recepeName">
-                </div>           
+                </div> 
+                <div class="form-group">
+                    <label>Pour combien de personnes</label>
+                    <input class="form-control verifyInt" data-name="Nombre de personnes" type="number" name="recepeNbPersonne">
+                </div>         
                 <div class="form-group">
                     <label>Catégorie</label>
                     <select class="form-control verifySelect" data-name="Catégorie de la recette" name="recepeCategory">

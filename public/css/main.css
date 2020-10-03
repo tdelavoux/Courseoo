@@ -74,10 +74,12 @@ body{
   outline: 0;
 }
 
-.black-overlay{
-/*    filter: grayscale(0.9);*/
+.modal { overflow: visible; }
+.modal-body { overflow-y: visible !important; }
+.dropdown-menu.show {
+    position: static !important;
+    position: static !important;
 }
-
 
 /* ####################################################################################
                                 INDEX

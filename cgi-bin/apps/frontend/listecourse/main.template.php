@@ -52,7 +52,7 @@
                     <thead>
                         <tr>
                             <th class="col-md-3">Ajouter depuis une recette</th>
-                            <th class="col-md-3"></th>
+                            <th class="col-md-3">Multiplicateur</th>
                             <th class="col-md-3"></th>
                             <th class="col-md-3"></th>
                         </tr>
@@ -63,13 +63,15 @@
                                 <select id="select-recette" class="form-control verifySlect selectpicker" data-live-search="true" name="recette" >
                                     <option value="null">Selectionnez une recette</option>
                                     <?php foreach($userRecepe as $recep) : ?>
-                                        <option data-tokens="<?php echo \Db::decode($recep['nom']); ?>" value="<?php echo $recep['id']; ?>"><?php echo \Db::decode($recep['nom']); ?></option>
+                                        <option data-tokens="<?php echo \Db::decode($recep['nom']); ?>" value="<?php echo $recep['id']; ?>"><?php echo \Db::decode($recep['nom']); ?> ( <?php echo $recep['nbPersonne'];?> personnes) </option>
                                     <?php endforeach; ?>
                                 </select>
                             </td>
+                            <td class="col-md-3">
+                                <input type="number" class="form-control verifyInt" name="mutli" data-name="Multiplicateur" value="1"/>
+                            </td>
                             <td class="col-md-3"></td>
-                            <td class="col-md-3"></td>
-                            <td class="col-md-3"> <button class="btn btn-success" <button type="submit">Ajouter</button></td>
+                            <td class="col-md-3"> <button class="btn btn-success" type="submit">Ajouter</button></td>
                         </tr>
                     </tbody>
                 </table>  
@@ -153,7 +155,8 @@
             type: 'post',
             data: { pattern: ids},
             success: function (result) {
-                if(result === 'ok'){
+                console.log(result);
+                if(result.trim() === 'ok'){
                     $.notify("Supression effectuée avec succès", 'success');
                 }else{
                     $.notify("Une erreur est survenue, contactez votre administrateur", 'error');
@@ -161,6 +164,7 @@
                 }
             }
         });  
+        $(this).parent().parent().detach();
     });
 
 </script>

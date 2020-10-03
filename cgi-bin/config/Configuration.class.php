@@ -158,7 +158,7 @@
 				return self::$modules[$lang][$mod];
 			}
 
-			throw new \Exception('Page not found', \Error::PAGE_NOT_FOUND);
+			throw new \Exception('Page not found', 404);
 		}
 
 		/**

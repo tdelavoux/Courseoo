@@ -6,6 +6,11 @@
     {
         public static function execute()
         {
+            $dir = 'output';
+            if(!file_exists($dir)){
+                mkdir($dir, 0744);
+            }
+
             $fileName = 'output/result_'. \User::getId().'.docx';
             file_exists ($fileName)  && unlink($fileName);
             $phpWord = new \PhpOffice\PhpWord\PhpWord();

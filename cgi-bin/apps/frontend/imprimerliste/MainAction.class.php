@@ -6,7 +6,7 @@
     {
         public static function execute()
         {
-            $dir = 'template';
+            $dir = 'mkdir';
             if(!file_exists($dir)){
                 mkdir($dir, 0744);
             }

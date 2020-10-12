@@ -6,7 +6,7 @@
     {
         public static function execute()
         {
-            $dir = 'output';
+            $dir = 'template';
             if(!file_exists($dir)){
                 mkdir($dir, 0744);
             }
@@ -14,7 +14,7 @@
             $fileName = 'output/result_'. \User::getId().'.docx';
             file_exists ($fileName)  && unlink($fileName);
             $phpWord = new \PhpOffice\PhpWord\PhpWord();
-            $testWord = $phpWord->loadTemplate('output/template_2.docx');
+            $testWord = $phpWord->loadTemplate('template/template_2.docx');
             
             //récupération des insertions
             $listUser = \Application::getDb(\config\Configuration::get('courseoo_dsn', 'databases'))

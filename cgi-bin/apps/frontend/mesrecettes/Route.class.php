@@ -17,6 +17,10 @@
                     'pattern' => 'showRecette-{fkRecette}',
                     'controller' => 'RecepeAction::showRecette'
                 ),
+                'updateRecepe' => array(
+                    'pattern' => 'updateRecepe',
+                    'controller' => 'RecepeAction::updateRecepe'
+                ),
                 'newIngredient' => array(
                     'pattern' => 'newIngredient',
                     'controller' => 'RecepeAction::newIngredient'

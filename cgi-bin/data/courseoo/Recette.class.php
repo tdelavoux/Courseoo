@@ -41,6 +41,20 @@
                 $statement->bindParam(':fkrecette', $fkRecette, \PDO::PARAM_INT);
                 $statement->execute();
             }
+
+            public function updateRecette($fkRecette, $nom, $fkCategorie, $nbPersonnes){
+                $statement = $this->db->prepare(
+                    "UPDATE recette "
+                    . "SET Nom = :nom "
+                    . ",fkCategorie = :fkCategorie "
+                    . ",nbPersonne = :nbPersonnes "
+                    . "WHERE id = :fkrecette");
+                $statement->bindParam(':nom', $nom, \PDO::PARAM_STR);
+                $statement->bindParam(':nbPersonnes', $nbPersonnes, \PDO::PARAM_INT);
+                $statement->bindParam(':fkCategorie', $fkCategorie, \PDO::PARAM_INT);
+                $statement->bindParam(':fkrecette', $fkRecette, \PDO::PARAM_INT);
+                $statement->execute();
+            }
             
             public function closeRecette($fkRecette, $date){
                 $statement = $this->db->prepare(

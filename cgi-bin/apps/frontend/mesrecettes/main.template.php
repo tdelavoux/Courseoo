@@ -89,7 +89,6 @@
                     <label tabindex="0" for="my-file" class="input-file-trigger">Image (optionel)</label>
                 </div>
                 <p class="file-return"></p>
-
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>

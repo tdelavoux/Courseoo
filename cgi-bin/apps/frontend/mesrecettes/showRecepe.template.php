@@ -2,6 +2,8 @@
     $recepeInfo     = \Page::get('recepeInfo'); 
     $mesures        = \Page::get('mesures'); 
     $ingredients    = \Page::get('ingredients'); 
+    $categories     = \Page::get('categories'); 
+    //die(var_dump($recepeInfo));
 ?>
 
 
@@ -11,7 +13,7 @@
         
     </div>
     
-    <h1 class="text-center"><?php echo $recepeInfo['nom']; ?> ( <?php echo $recepeInfo['nbPersonne'];?> personnes) </h1>
+    <h1 class="text-center"><?php echo $recepeInfo['nom']; ?> ( <?php echo $recepeInfo['nbPersonne'];?> personnes) <a class="btn btn-large btn-modif" data-toggle="modal" data-target="#modifyRecepeModal"><i class="fas fa-2x fa-pencil-alt"></i></a></h1>
     
     <!-------------------- CORPS  -------------------------------->
     <div class="btn-left-bloc">
@@ -41,7 +43,7 @@
 
 
 
-<!---------------------- MODALE  ------------------------------------------>
+<!---------------------- MODALE INGREDIENTS ------------------------------------------>
 <form action="<?php echo \Application::getRoute('mesrecettes', 'newIngredient'); ?>" method="POST">
     <div class="modal fade" id="addIngredientModal" tabindex="-1" role="dialog" aria-labelledby="addIngredientModal" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -74,7 +76,53 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                  <button type="submit" id="addNewRecepe" class="btn btn-primary submit-form-btn">Ajouter le recette</button>
+                  <button type="submit" id="addNewRecepe" class="btn btn-primary submit-form-btn">Ajouter l'ingrédient</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+<!---------------------- MODALE MODIF RECETTE  ------------------------------------------>
+<form action="<?php echo \Application::getRoute('mesrecettes', 'updateRecepe'); ?>" method="POST" enctype="multipart/form-data">
+    <div class="modal fade" id="modifyRecepeModal" tabindex="-1" role="dialog" aria-labelledby="modifyRecepeModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modifier la recette</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" value="<?php echo $recepeInfo['id'] ; ?>" name="fkRecepe">
+                    <div class="form-group">
+                        <label>Nom de la recette</label>
+                        <input class="form-control verifyText" data-name="Nom de la recette" type="text" name="recepeName" value="<?php echo $recepeInfo['nom']; ?>">
+                    </div> 
+                    <div class="form-group">
+                        <label>Pour combien de personnes</label>
+                        <input class="form-control verifyInt" data-name="Nombre de personnes" type="number" name="recepeNbPersonne" value="<?php echo $recepeInfo['nbPersonne']; ?>">
+                    </div>         
+                    <div class="form-group">
+                        <label>Catégorie</label>
+                        <select class="form-control verifySelect" data-name="Catégorie de la recette" name="recepeCategory">
+                            <option value="null">Choissiez une catégorie principale</option>
+                            <?php foreach($categories as $cat) :?>
+                                <option <?php echo intval($recepeInfo['catId']) == intval($cat['id']) ? 'selected' : ''; ?> value="<?php echo $cat['id']; ?>"><?php echo \Db::decode($cat['libelle']); ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div> 
+                    <div class="input-file-container">  
+                        <input class="input-file" id="my-file" type="file" name="recepeImage">
+                        <label tabindex="0" for="my-file" class="input-file-trigger">Image (optionel)</label>
+                    </div>
+                    <p class="file-return"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                    <button type="submit" id="updateNewRecepe" class="btn btn-primary submit-form-btn">Modifier la recette</button>
                 </div>
             </div>
         </div>
@@ -108,5 +156,26 @@
         },
         minLength: 2
     });
+
+
+    document.querySelector("html").classList.add('js');
+
+    var fileInput  = document.querySelector( ".input-file" ),  
+        button     = document.querySelector( ".input-file-trigger" ),
+        the_return = document.querySelector(".file-return");
+
+    button.addEventListener( "keydown", function( event ) {  
+        if ( event.keyCode == 13 || event.keyCode == 32 ) {  
+            fileInput.focus();  
+        }  
+    });
+    button.addEventListener( "click", function( event ) {
+       fileInput.focus();
+       return false;
+    });  
+    fileInput.addEventListener( "change", function( event ) {  
+        var temp = $(this).val().split("\\");
+        the_return.innerHTML = temp[temp.length -1 ];  
+    }); 
 
 </script>

@@ -92,8 +92,15 @@
         public static function deleteRecette($fkRecette){
             \Application::getDb(\config\Configuration::get('courseoo_dsn', 'databases'))
                       ->data('courseoo\\Recette')->closeRecette($fkRecette, date('Ymd'));
-                \Form::addConfirmation('Recette supprimée avec succès');
-                \Form::displayResult(\Application::getRoute('mesrecettes', 'index'));
+            \Form::addConfirmation('Recette supprimée avec succès');
+            \Form::displayResult(\Application::getRoute('mesrecettes', 'index'));
+        }
+
+        public static function deleteIngredients($fkIngredient,$fkRecette){
+            \Application::getDb(\config\Configuration::get('courseoo_dsn', 'databases'))
+                      ->data('courseoo\\IngredientRecette')->deleteIngredient($fkIngredient);
+            \Form::addConfirmation('Ingrédient supprimé');
+            \Form::displayResult(\Application::getRoute('mesrecettes', 'showRecette', array($fkRecette)));
         }
         
         

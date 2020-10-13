@@ -18,7 +18,7 @@ i{margin:0 0.5em;}
 .mg-1{margin:1em;}
 
 input {
-   outline: none;
+    outline: none;
     box-shadow:none !important;
     border:1px solid #ccc !important;
 }
@@ -61,17 +61,17 @@ body{
 }
 
 .borderless{
-  border: none !important;
- 
-  outline: 0;
-  font-size: 25px;
+    border: none !important;
+    
+    outline: 0;
+    font-size: 25px;
 }
 .borderless[readonly]{
     background-color: #fff !important;
 }
 .borderless:focus {
-  border: none !important;
-  outline: 0;
+    border: none !important;
+    outline: 0;
 }
 
 .modal { overflow: visible; }
@@ -82,7 +82,7 @@ body{
 }
 
 /* ####################################################################################
-                                INDEX
+INDEX
 ####################################################################################### */
 
 .card-rows{
@@ -92,9 +92,9 @@ body{
 }
 .card{padding:0;}
 .card-img-top {
-  height: 165px;
-  width: 100%;
-  margin:0;
+    height: 165px;
+    width: 100%;
+    margin:0;
 }
 .bloc-card{padding: 0 0.5em;  margin: 0.5 1em 1em 1em;}
 
@@ -107,7 +107,7 @@ body{
 }
 
 .my_recepe{
-   color:#fff; 
+    color:#fff; 
     background-image: url("../images/my_recep.jpg");
     background-position: center;
     background-repeat: no-repeat;
@@ -126,18 +126,18 @@ body{
 
 
 .p-card-text{
-  position: relative;
-  padding-bottom: 56%;
-  overflow: hidden;
+    position: relative;
+    padding-bottom: 56%;
+    overflow: hidden;
 }
 
 .card-body-content {
-  position: absolute;
-  top: 1rem;
-  bottom: 1rem;
-  right: 1rem;
-  left: 1rem;
-  overflow: hidden;
+    position: absolute;
+    top: 1rem;
+    bottom: 1rem;
+    right: 1rem;
+    left: 1rem;
+    overflow: hidden;
 }
 
 /*-------- CARDS STATS -------*/
@@ -273,7 +273,7 @@ body{
     -webkit-box-shadow: 2px 3px 5px 3px rgba(204,204,204,1);
     -moz-box-shadow: 2px 3px 5px 3px rgba(204,204,204,1);
     box-shadow: 2px 3px 5px 3px rgba(204,204,204,1);
-     min-height: 400px;
+    min-height: 400px;
 }
 
 /* ############## Liste de Course #################################' */
@@ -302,84 +302,84 @@ table{
     text-align: right;
 }
 .buttonAddExtend {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-  outline: none;
-  border: 0;
-  vertical-align: middle;
-  text-decoration: none;
-  background: transparent;
-  padding: 0;
-  font-size: inherit;
-  font-family: inherit;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    vertical-align: middle;
+    text-decoration: none;
+    background: transparent;
+    padding: 0;
+    font-size: inherit;
+    font-family: inherit;
 }
 .buttonAddExtend.btn {
-  width: 15rem;
-  height: auto;
+    width: 15rem;
+    height: auto;
 }
 .buttonAddExtend.btn .circle {
-  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-  position: relative;
-  display: block;
-  margin: 0;
-  width: 3rem;
-  height: 3rem;
-  background: #5ebd6e;
-  border-radius: 1.625rem;
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: relative;
+    display: block;
+    margin: 0;
+    width: 3rem;
+    height: 3rem;
+    background: #5ebd6e;
+    border-radius: 1.625rem;
 }
 .buttonAddExtend.btn .circle .icon {
-  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  background: #fff;
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: #fff;
 }
 .buttonAddExtend.btn .circle .icon.arrow {
-  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-  left: 0.625rem;
-  width: 1.125rem;
-  height: 0.125rem;
-  background: none;
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    left: 0.625rem;
+    width: 1.125rem;
+    height: 0.125rem;
+    background: none;
 }
 .buttonAddExtend.btn .circle .icon.arrow::before {
-  position: absolute;
-  content: '';
-  top: -0.25rem;
-  right: 0.0625rem;
-  width: 0.625rem;
-  height: 0.625rem;
-  border-top: 0.125rem solid #fff;
-  border-right: 0.125rem solid #fff;
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
+    position: absolute;
+    content: '';
+    top: -0.25rem;
+    right: 0.0625rem;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-top: 0.125rem solid #fff;
+    border-right: 0.125rem solid #fff;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
 }
 .buttonAddExtend.btn .button-text {
-  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 0.75rem 0;
-  margin: 0 0 0 1.85rem;
-  color: #282936;
-  font-weight: 700;
-  line-height: 1.6;
-  text-align: center;
-  text-transform: uppercase;
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.75rem 0;
+    margin: 0 0 0 1.85rem;
+    color: #282936;
+    font-weight: 700;
+    line-height: 1.6;
+    text-align: center;
+    text-transform: uppercase;
 }
 .buttonAddExtend:hover .circle {
-  width: 100%;
+    width: 100%;
 }
 .buttonAddExtend:hover .circle .icon.arrow {
-  background: #fff;
-  -webkit-transform: translate(1rem, 0);
-          transform: translate(1rem, 0);
+    background: #fff;
+    -webkit-transform: translate(1rem, 0);
+    transform: translate(1rem, 0);
 }
 .buttonAddExtend:hover .button-text {
-  color: #fff;
+    color: #fff;
 }
 
 .notifyjs-corner{
@@ -390,41 +390,48 @@ table{
 /* ############## Liste d'ingrédients #################################' */
 
 .list-cust .list-group-item:first-child {
-      border-top-right-radius: 0px;
-      border-top-left-radius: 0px;
-  }
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+}
 
-  .list-cust .list-group-item:last-child {
-      border-bottom-right-radius: 0px;
-      border-bottom-left-radius: 0px;
-  }
-  .list-cust .list-group-item {
-     border-right:0px;
-     border-left:0px;
-  }
-  .list-group :not(:first-child) {
-      background-color: #EEE;
+.list-cust .list-group-item:last-child {
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+.list-cust .list-group-item {
+    border-right:0px;
+    border-left:0px;
+}
+.list-group :not(:first-child) {
+    background-color: #EEE;
+}
+.list-group-item{
+    display:flex;
+    justify-content: space-between;
+}
 
-  }
-  
-  .has-error > *{
-      color:#B43D3D;
-      border-color: #B43D3D;
-  }
+.list-group-item-delete, .list-group-item-delete:hover {
+    color:#B43D3D;
+}
 
-  .accountNav{
-      margin-right: 1em;
-      color: #fff;
-  }
-  
-  .accountNav:hover{
-      text-decoration: none;
-      color: #fff;
-  }
-  
-  
-  /* -------------- Pagination ----------------------------------- */
-  
+.has-error > *{
+    color:#B43D3D;
+    border-color: #B43D3D;
+}
+
+.accountNav{
+    margin-right: 1em;
+    color: #fff;
+}
+
+.accountNav:hover{
+    text-decoration: none;
+    color: #fff;
+}
+
+
+/* -------------- Pagination ----------------------------------- */
+
 .pagination {
     background: #f2f2f2;
     padding: 1em;
@@ -517,49 +524,49 @@ table{
 
 
 .input-file-container {
-  position: relative;
-  width: 225px;
+    position: relative;
+    width: 225px;
 } 
 .js .input-file-trigger {
-  display: block;
-  padding: 14px 45px;
-  background: #39D2B4;
-  color: #fff;
-  font-size: 1em;
-  transition: all .4s;
-  cursor: pointer;
+    display: block;
+    padding: 14px 45px;
+    background: #39D2B4;
+    color: #fff;
+    font-size: 1em;
+    transition: all .4s;
+    cursor: pointer;
 }
 .js .input-file {
-  position: absolute;
-  top: 0; left: 0;
-  width: 225px;
-  opacity: 0;
-  padding: 14px 0;
-  cursor: pointer;
+    position: absolute;
+    top: 0; left: 0;
+    width: 225px;
+    opacity: 0;
+    padding: 14px 0;
+    cursor: pointer;
 }
 .js .input-file:hover + .input-file-trigger,
 .js .input-file:focus + .input-file-trigger,
 .js .input-file-trigger:hover,
 .js .input-file-trigger:focus {
-  background: #34495E;
-  color: #39D2B4;
+    background: #34495E;
+    color: #39D2B4;
 }
 
 .file-return {
-  margin: 0;
+    margin: 0;
 }
 .file-return:not(:empty) {
-  margin: 1em 0;
+    margin: 1em 0;
 }
 .js .file-return {
-  font-style: italic;
-  font-size: .9em;
-  font-weight: bold;
+    font-style: italic;
+    font-size: .9em;
+    font-weight: bold;
 }
 .js .file-return:not(:empty):before {
-  content: "Selected file: ";
-  font-style: normal;
-  font-weight: normal;
+    content: "Selected file: ";
+    font-style: normal;
+    font-weight: normal;
 }
 
 
@@ -577,10 +584,9 @@ table{
 }
 
 @media only screen and (max-width : 992px) {
-
+    
     .logo-apps{
         display:none;
     }
-
+    
 }
- 

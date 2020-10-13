@@ -24,6 +24,10 @@
                 'deleteRecette' => array(
                     'pattern' => 'deleteRecette-{fkRecette}',
                     'controller' => 'RecepeAction::deleteRecette'
+                ),
+                'deleteIngredients' => array(
+                    'pattern' => 'deleteIngredients-{fkIngredient}-{fkRecette}',
+                    'controller' => 'RecepeAction::deleteIngredients'
                 )
             );
 	}

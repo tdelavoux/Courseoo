@@ -28,7 +28,10 @@
             <div class="list-group list-cust">
                 <span class="list-group-item active">Ingrédients de la recette</span>
                 <?php foreach($ingredients as $ingredient) : ?>
-                    <span  class="list-group-item"><?php echo $ingredient['quantite'] . $ingredient['uniteMesure'] . ' ' .  $ingredient['ingredient']; ?></span>
+                    <span  class="list-group-item">
+                        <?php echo $ingredient['quantite'] . $ingredient['uniteMesure'] . ' ' .  $ingredient['ingredient']; ?>
+                        <a class="list-group-item-delete" href="<?php echo \Application::getRoute('mesrecettes', 'deleteIngredients', array($ingredient['id'], $recepeInfo['id'])); ?>"><i class="fas fa-minus-circle"></i></a>
+                    </span>
                 <?php endforeach; ?>
             </div>
         </div>
